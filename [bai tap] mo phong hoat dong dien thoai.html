@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>su hoat dong cua dien thoai</title>
+</head>
+<body>
+<script>
+    var Mobile = function (energy) {
+
+        this.energy = energy;
+
+        this.isActive = false;
+
+        this.statusbattery = 0;
+
+        //thuoc tinh
+
+        this.statusMobile = function () {
+
+            if (this.isActive === true) {
+                this.decreaseEnergy();
+                alert("may dang bat" + "voi pin" + this.energy + "%");
+
+            } else {
+
+                alert("may dang tat");
+
+            }
+        }
+
+        this.chargeBattery = function () {
+
+            if (this.energy > 100) {
+                alert("pin full")
+            } else {
+                this.energy = this.energy + 1;
+                this.decreaseEnergy();
+                alert("pin dang co: " + this.energy + "%");
+            }
+
+        }
+
+        this.turnON = function () {
+            this.isActive = true;
+            this.decreaseEnergy();
+            alert("may da bat");
+        }
+
+        this.turnOFF = function () {
+            this.isActive = false;
+            this.decreaseEnergy();
+            alert("da tat may");
+
+        }
+
+        this.onoffMobile = function () {
+
+            if (this.energy > 0) {
+
+                alert("dien thoai: " + this.turnON);
+
+            } else {
+
+                alert("dien thoai: " + this.turnOFF);
+
+            }
+        }
+
+        this.textingSMS = function () {
+
+            alert("dang soan tin nhan ");
+            this.decreaseEnergy();
+            this.statusbattery = this.battery--;
+
+        }
+        this.reciveSMS = function () {
+
+            alert("dang nhan tin nhan");
+            this.decreaseEnergy();
+            this.statusbattery = this.statusbattery--;
+
+        }
+        this.viewSMS = function () {
+
+            alert("dang xem tin nhan");
+            this.decreaseEnergy();
+            this.statusbattery = this.statusbattery--;
+
+        }
+        this.decreaseEnergy = function () {
+
+            if (this.statusbattery > 0) {
+
+                alert("nang luong pin: " + this.statusbattery--);
+
+            } else {
+
+                alert("nang luong pin: " + 0);
+
+            }
+        }
+
+    }
+
+    var mobile1 = new Mobile(100);
+
+    function statusMobile() {
+
+        mobile1.statusMobile();
+
+    }
+    function turnON() {
+
+        mobile1.turnON();
+
+    }
+    function turnOFF() {
+
+        mobile1.turnOFF();
+
+    }
+    function chargeBattery() {
+
+        mobile1.chargeBattery();
+
+    }
+</script>
+</body>
+<button type="submit" onclick="statusMobile()">click check status</button>
+<button type="submit" onclick="turnON()">click to open</button>
+<button type="submit" onclick="turnOFF()">Click to close</button>
+<button type="submit" onclick="chargeBattery()"> click to charge battery </button>
+</html>

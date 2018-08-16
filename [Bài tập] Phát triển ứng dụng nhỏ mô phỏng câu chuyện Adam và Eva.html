@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mo phong cau chuyen adam va eva</title>
+</head>
+<body>
+    <script>
+        var Apple = function (weight) {
+            
+            this.weight = weight;
+            //thuoc tinh
+
+            this.getWeight = function (_weight) {
+                
+                return this.weight = _weight;
+                
+            }
+            //nhan khoi luong
+
+            this.isEmpty = function () {
+
+                if (this.weight > 0) {
+
+                    alert("tao co khoi luong = " + this.weight);
+
+                } else {
+
+                    alert("tao co khoi luong = " + 0);
+                }
+            }
+            //khoi luong rong
+
+            this.decrease = function () {
+                
+                this.decrease = this.decrease--;
+                
+            }
+            //khoi luong giam dan
+        }
+        
+        var Human = function (name,gender,weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+            this.male = male;
+            this.female = female;
+            //thuoc tinh cua Human
+
+            this.isMale = function (gender) {
+                if (this.gender === this.male) {
+                    alert("gioi tinh la" + this.male);
+                } else {
+                    alert("gioi tinh la" + this.female);
+                }
+            } 
+            //kiem tra gioi tinh
+
+            this.setGender = function () {
+                if (this.gender !== male) {
+                    alert("gioi tinh: " + this.female);
+                } else {
+                    alert("gioi tinh: " + this.male);
+                }
+            }
+
+            this.checkApple = function (Apple) {
+                if (this.weight === 10) {
+                    alert("qua tao con nguyen khoi luong");
+                } else {
+                    alert("qua tao ko con nguyen");
+                }
+            }
+            //kiem tra qua tao
+
+            this.eat = function (Apple) {
+                if (this.weight > 0 ) {
+                    alert("da an 1 mieng tao qua tao con:" +  this.weight - 1);
+                } else if (this.weight === 0) {
+                    alert("da an het qua tao")
+                }
+            }
+            //an qua tao
+
+            this.say = function () {
+                alert("hello world!!!")
+            }
+            //noi 1 cau
+
+            this.getName = function () {
+                return this.name;
+            }
+
+            this.setName = function () {
+                alert("toi ten la: " + this.name);
+            }
+
+            this.getWeight = function () {
+                return this.weight;
+            }
+
+            this.setWeight = function () {
+                alert("can nang: " + this.weight );
+            }
+        }
+
+        var apple1 = new Apple(10);
+        var human1 = new Human(Adam,male,63);
+        var human2 = new Human(Eva,female,50);
+        human1.eat(apple1);
+        human2.eat(apple1);
+        human1.checkApple(apple1);
+        human2.checkApple(apple1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hoat dong den pin</title>
+</head>
+<body>
+    <script>
+        var Battery = function (energy) {
+
+            this.energy = energy; // khoi tao gia ttri mac dinh cho pin
+
+            this.setEnergy = function (new_energy) {
+
+                this.energy = new_energy;
+
+            }
+            // thiet dat gia tri moi cho pin
+
+            this.getEnergy = function () {
+
+                return this.energy;
+
+            }
+            // thong tin nang luong pin dang co
+
+            this.decreaseEnergy = function () {
+
+                this.energy = this.energy --;
+
+            }
+            // moi lan su dung pin nang luong giam dan
+        }
+
+
+        var FlashLamp = function (status,battery) {
+
+            this.battery = battery;
+
+            this.status = status;
+            //thuoc tinh
+
+            this.boolenStatus = function (status) {
+
+                if (status === true) {
+
+                    alert("den dang sang") ;
+
+                } else {
+
+                    alert("den dang tat");
+                }
+            }
+            //trang thai cua den
+
+            this.FlashLamp = function () {
+
+                this.status = false;
+
+                this.battery = 0;
+
+            }
+            //khoi tao trang thai den tat & chua co pin
+        
+            this.setBattery = function (_battery) {
+
+                this.battery = _battery;
+
+            }
+            //nap pin cho den
+
+            
+            this.turnON = function () {
+                alert("den sang");
+
+                this.energy = this.decreaseEnergy();
+
+            }
+            //thong tin den sang
+
+            this.turnOFF = function () {
+
+                alert("den tat");
+
+                this.energy = this.decreaseEnergy();
+
+            }
+            //thong tin den tat
+        }
+
+        function main() {
+
+            var b1 = new Battery();//tao doi tuong pin cu
+
+            var f = new FlashLamp();//tao doi tuong den
+
+            var b2 = new Battery(100);// tao doi tuong pin moi
+
+            f.setBattery(b2);//thay pin b2
+
+            f.turnON();//bat den
+
+        }
+        main();
+    </script>
+</body>
+</html>
